@@ -1,26 +1,52 @@
-/* Compact UI: keep useful status, remove bulky blocks */
-main > section.panel:first-child{display:none!important}
-header{padding-bottom:20px!important}
+/* Compact UI v6 */
+.bulky-stats{display:none!important}
+header{padding-bottom:22px!important}
+header>div{position:relative!important}
 main{margin-top:12px!important}
-.header-account{margin-top:12px!important;padding:9px 11px!important;border:1px solid #ffffff3d!important;border-radius:13px!important;background:#ffffff12!important;box-shadow:none!important;color:#fff!important}
-.header-account .row{gap:7px!important}
-.header-account #accountTitle{font-size:13px!important;font-weight:700!important;color:#fff!important}
-.header-account #accountText{font-size:11px!important;color:#fff!important;opacity:.78!important;margin-top:2px!important}
-.header-account #logoutBox button,.header-account #loginBox button{padding:6px 9px!important;border-radius:9px!important;font-size:12px!important;background:#ffffff22!important;color:#fff!important;border:1px solid #ffffff40!important}
-.header-account #loginBox input{min-width:150px!important;padding:7px 9px!important;font-size:12px!important;border:1px solid #ffffff55!important;background:#fff!important}
-.badge.mini-stat{background:#ffffff12;font-weight:600}
-main > section.panel:nth-of-type(1){margin-top:0}
-@media(max-width:700px){
+
+.header-account{
+  position:absolute!important;
+  top:0!important;
+  right:0!important;
+  width:auto!important;
+  max-width:560px!important;
+  margin:0!important;
+  padding:7px 9px!important;
+  border:1px solid #ffffff38!important;
+  border-radius:12px!important;
+  background:#ffffff10!important;
+  box-shadow:none!important;
+  color:#fff!important;
+  z-index:3!important;
+}
+.header-account>.row{display:flex!important;align-items:center!important;gap:7px!important;flex-wrap:nowrap!important}
+.header-account .grow{display:flex!important;align-items:center!important;gap:6px!important;min-width:0!important}
+.header-account #accountTitle{font-size:12px!important;font-weight:700!important;color:#fff!important;white-space:nowrap!important}
+.header-account #accountText{font-size:11px!important;color:#fff!important;opacity:.78!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:210px!important}
+.header-account #logoutBox,.header-account #loginBox{margin-left:auto!important;display:flex!important;gap:6px!important;flex-wrap:nowrap!important}
+.header-account #logoutBox.hidden,.header-account #loginBox.hidden{display:none!important}
+.header-account #logoutBox button,.header-account #loginBox button{padding:6px 9px!important;border-radius:9px!important;font-size:12px!important;background:#ffffff20!important;color:#fff!important;border:1px solid #ffffff40!important;white-space:nowrap!important}
+.header-account #loginBox input{width:130px!important;min-width:0!important;padding:6px 8px!important;font-size:12px!important;border:1px solid #ffffff55!important;background:#fff!important;color:#222!important}
+.badge.mini-stat{background:#ffffff12!important;font-weight:600!important}
+.badges{padding-right:0!important;max-width:100%!important}
+
+@media(min-width:801px){
+  header h1,header .sub,.badges{max-width:58%!important}
+}
+
+@media(max-width:800px){
   header{padding:22px 14px 16px!important}
   header h1{font-size:24px!important}
   header .sub{font-size:13px!important}
   .badges{margin-top:10px!important;gap:6px!important}
   .badge{font-size:11px!important;padding:5px 8px!important}
-  .header-account{padding:8px 10px!important}
-  .header-account .grow{min-width:0;flex:1 1 160px}
-  .header-account #accountText{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62vw}
-  .header-account #logoutBox{margin-left:auto}
-  .header-account #logoutBox button{padding:6px 8px!important}
+  .header-account{position:static!important;max-width:none!important;margin-top:12px!important;width:100%!important}
+  .header-account>.row{flex-wrap:wrap!important}
+  .header-account .grow{flex:1 1 100%!important}
+  .header-account #accountText{max-width:64vw!important}
+  .header-account #loginBox{width:100%!important;margin-left:0!important;flex-wrap:wrap!important}
+  .header-account #loginBox input{flex:1 1 130px!important;width:auto!important}
+  .header-account #logoutBox{margin-left:0!important}
   main{padding:0 10px 34px!important}
   .panel{padding:14px!important;margin-bottom:10px!important;border-radius:16px!important}
   .nav{gap:6px!important}
