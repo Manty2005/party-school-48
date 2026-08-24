@@ -1,8 +1,9 @@
-const CACHE = 'party-school-48-v2';
+const CACHE = 'party-school-48-v3';
 const APP_SHELL = [
   './',
   './index.html',
   './direct.html',
+  './otp-patch.js',
   './manifest.webmanifest',
   './icon.svg'
 ];
@@ -36,6 +37,29 @@ async function networkFirst(request, fallback) {
   }
 }
 
+async function directPageWithOtp(request) {
+  let response;
+  try {
+    response = await fetch(request);
+    if (response && response.ok) {
+      const cache = await caches.open(CACHE);
+      cache.put('./direct.html', response.clone());
+    }
+  } catch (_) {
+    response = await caches.match('./direct.html');
+  }
+  if (!response) return Response.error();
+  const text = await response.text();
+  const patched = text.includes('otp-patch.js')
+    ? text
+    : text.replace('</body>', '<script src="./otp-patch.js?v=3"></script></body>');
+  return new Response(patched, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: response.headers
+  });
+}
+
 self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
@@ -43,7 +67,11 @@ self.addEventListener('fetch', event => {
 
   if (url.origin === self.location.origin) {
     if (request.mode === 'navigate') {
-      event.respondWith(networkFirst(request, './direct.html'));
+      if (url.pathname.endsWith('/direct.html')) {
+        event.respondWith(directPageWithOtp(request));
+      } else {
+        event.respondWith(networkFirst(request, './direct.html'));
+      }
       return;
     }
     event.respondWith(
