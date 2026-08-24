@@ -1,7 +1,7 @@
 {
   "name": "第48期校党校学习助手",
   "short_name": "党校学习",
-  "description": "第48期校党校刷题、背诵卡、错题与云同步学习助手",
+  "description": "第48期校党校系统学习、原文背诵、刷题、错题与云同步学习助手",
   "lang": "zh-CN",
   "start_url": "./app.html",
   "scope": "./",
@@ -10,6 +10,11 @@
   "background_color": "#faf8f4",
   "theme_color": "#8f1d28",
   "icons": [
-    {"src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
   ]
 }
