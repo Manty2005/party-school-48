@@ -5,174 +5,38 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="党校学习助手">
 <meta name="mobile-web-app-capable" content="yes">
-<style>:root{--r:#981f2b;--bg:#faf8f4;--line:#eadfd5;--muted:#726a64}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(#f0e3dd,#faf8f4 340px);color:#262220}header{background:linear-gradient(135deg,#7a1822,#ac2936);color:#fff;padding:32px 16px 48px}header>div,main{max-width:1050px;margin:auto}h1{font-size:32px;margin:0 0 8px}.sub{opacity:.9}.badges,.row,.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.badges{margin-top:14px}.badge{border:1px solid #ffffff66;border-radius:999px;padding:6px 11px;font-size:13px}main{margin-top:-28px;padding:0 16px 50px}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:0 9px 28px #6d4c3d12}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.stat{background:#fffaf5;border:1px solid #ecdccf;border-radius:15px;text-align:center;padding:15px}.stat b{display:block;font-size:23px;color:var(--r)}.stat span,.small{font-size:13px;color:var(--muted)}button,input,select{font:inherit}button{border:0;border-radius:12px;padding:11px 16px;background:#f1ece8;cursor:pointer}button.primary{background:var(--r);color:#fff}button:disabled{opacity:.5;cursor:not-allowed}input,select{border:1px solid #d9cdc4;border-radius:11px;padding:11px 13px;background:#fff}.grow{flex:1}.login input{min-width:280px}.hidden{display:none!important}.title{font-weight:800;color:#7c1720;font-size:20px;margin-bottom:12px}.option{display:block;width:100%;text-align:left;background:#fff;border:1px solid #ddd2ca;padding:13px 15px;margin:9px 0}.option.correct{background:#edf8f1;border-color:#75b58f}.option.wrong{background:#fff0f0;border-color:#e19b9b}.q{font-size:19px;font-weight:750;line-height:1.6;margin:10px 0}.explain{background:#f7f1eb;border-radius:12px;padding:13px;line-height:1.7;margin-top:12px}.item{padding:12px 0;border-bottom:1px dashed #ddd}.card{min-height:220px;border:1px solid #e4d9d0;border-radius:18px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(160deg,#fff,#fff5e9);cursor:pointer}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#282321;color:#fff;padding:11px 15px;border-radius:12px;z-index:99}.warn{color:#b53535}.good{color:#27744c}@media(max-width:700px){h1{font-size:27px}.stats{grid-template-columns:repeat(2,1fr)}.stats .stat:last-child{grid-column:span 2}.login input{width:100%;min-width:0}}</style>
+<style>:root{--r:#981f2b;--bg:#faf8f4;--line:#eadfd5;--muted:#726a64}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(#f0e3dd,#faf8f4 340px);color:#262220}header{background:linear-gradient(135deg,#7a1822,#ac2936);color:#fff;padding:32px 16px 48px}header>div,main{max-width:1050px;margin:auto}h1{font-size:32px;margin:0 0 8px}.sub{opacity:.9}.badges,.row,.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.badges{margin-top:14px}.badge{border:1px solid #ffffff66;border-radius:999px;padding:6px 11px;font-size:13px}main{margin-top:-28px;padding:0 16px 50px}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:0 9px 28px #6d4c3d12}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.stat{background:#fffaf5;border:1px solid #ecdccf;border-radius:15px;text-align:center;padding:15px}.stat b{display:block;font-size:23px;color:var(--r)}.stat span,.small{font-size:13px;color:var(--muted)}button,input,select{font:inherit}button{border:0;border-radius:12px;padding:11px 16px;background:#f1ece8;cursor:pointer}button.primary{background:var(--r);color:#fff}button:disabled{opacity:.5;cursor:not-allowed}input,select{border:1px solid #d9cdc4;border-radius:11px;padding:11px 13px;background:#fff}.grow{flex:1}.login input{min-width:220px}.hidden{display:none!important}.title{font-weight:800;color:#7c1720;font-size:20px;margin-bottom:12px}.option{display:block;width:100%;text-align:left;background:#fff;border:1px solid #ddd2ca;padding:13px 15px;margin:9px 0}.option.correct{background:#edf8f1;border-color:#75b58f}.option.wrong{background:#fff0f0;border-color:#e19b9b}.q{font-size:19px;font-weight:750;line-height:1.6;margin:10px 0}.explain{background:#f7f1eb;border-radius:12px;padding:13px;line-height:1.7;margin-top:12px}.item{padding:12px 0;border-bottom:1px dashed #ddd}.card{min-height:220px;border:1px solid #e4d9d0;border-radius:18px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(160deg,#fff,#fff5e9);cursor:pointer}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#282321;color:#fff;padding:11px 15px;border-radius:12px;z-index:99}.warn{color:#b53535}.good{color:#27744c}@media(max-width:700px){h1{font-size:27px}.stats{grid-template-columns:repeat(2,1fr)}.stats .stat:last-child{grid-column:span 2}.login input{width:100%;min-width:0}}</style>
 </head><body><header><div><h1>第48期校党校学习助手</h1><div class="sub">云端动态题库 · 手机电脑同步 · 错题本 · 收藏 · 背诵卡</div><div class="badges"><span class="badge" id="cloud">正在连接云端</span><span class="badge" id="version">题库版本：--</span><span class="badge" id="count">题库：--</span></div></div></header>
 <main><section class="panel"><div class="stats"><div class="stat"><b id="sTotal">0</b><span>题库</span></div><div class="stat"><b id="sDone">0</b><span>累计作答</span></div><div class="stat"><b id="sAcc">0%</b><span>正确率</span></div><div class="stat"><b id="sWrong">0</b><span>错题</span></div><div class="stat"><b id="sStar">0</b><span>收藏</span></div></div></section>
-<section class="panel"><div class="row"><div class="grow"><b id="accountTitle">登录后开启跨设备同步</b><div class="small" id="accountText">手机和电脑使用同一个邮箱即可同步学习记录。</div></div><div class="row login" id="loginBox"><input id="email" type="email" placeholder="输入邮箱"><button id="loginBtn" class="primary" onclick="login()">发送登录链接</button></div><div class="row hidden" id="logoutBox"><button onclick="reloadAll()">检查题库更新</button><button onclick="logout()">退出</button></div></div></section>
+<section class="panel"><div class="row"><div class="grow"><b id="accountTitle">登录后开启跨设备同步</b><div class="small" id="accountText">手机和电脑使用同一个邮箱和密码即可同步学习记录。</div></div><div class="row login" id="loginBox"><input id="email" type="email" placeholder="输入邮箱"><input id="password" type="password" autocomplete="current-password" placeholder="输入密码"><button id="loginBtn" class="primary" onclick="login()">登录</button></div><div class="row hidden" id="logoutBox"><button onclick="reloadAll()">检查题库更新</button><button onclick="logout()">退出</button></div></div></section>
 <section class="panel"><div class="nav"><button class="primary" onclick="tab('quiz')">开始刷题</button><button onclick="tab('cards')">背诵卡</button><button onclick="tab('wrong')">错题本</button><button onclick="tab('star')">收藏</button></div></section>
 <section id="quiz" class="panel page"><div class="title">随机刷题</div><div class="row"><select id="cat" onchange="newQuiz()"><option value="ALL">全部模块</option></select><select id="num" onchange="newQuiz()"><option>10</option><option selected>20</option><option>30</option><option value="999">全部</option></select><button onclick="newQuiz()">换一套</button></div><div id="quizBox" style="margin-top:14px"></div></section>
 <section id="cards" class="panel page hidden"><div class="title">背诵卡</div><div class="row"><select id="cardCat" onchange="resetCards()"><option value="ALL">全部模块</option></select></div><div id="cardBox" class="card" onclick="flipCard()" style="margin-top:12px"></div><div class="row" style="justify-content:space-between;margin-top:10px"><button onclick="prevCard()">上一张</button><span class="small" id="cardPos"></span><button class="primary" onclick="nextCard()">下一张</button></div></section>
 <section id="wrong" class="panel page hidden"><div class="title">错题本</div><div id="wrongBox"></div></section><section id="star" class="panel page hidden"><div class="title">我的收藏</div><div id="starBox"></div></section></main><div id="toast" class="toast hidden"></div>
-
 <script>
 function createDirectClient(baseUrl, apiKey){
-  const SESSION_KEY='party48_supabase_session_v1';
-  let authCb=null;
-
-  function b64urlDecode(s){
-    s=s.replace(/-/g,'+').replace(/_/g,'/');
-    while(s.length%4)s+='=';
-    try{return decodeURIComponent(Array.prototype.map.call(atob(s),c=>'%' + ('00'+c.charCodeAt(0).toString(16)).slice(-2)).join(''))}
-    catch(_){try{return atob(s)}catch(__){return ''}}
-  }
-  function userFromToken(token){
-    try{
-      const payload=JSON.parse(b64urlDecode(token.split('.')[1]));
-      return {id:payload.sub,email:payload.email||'',...payload};
-    }catch(_){return null}
-  }
-  function getStored(){
-    try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch(_){return null}
-  }
-  function storeSession(s){
-    if(!s){localStorage.removeItem(SESSION_KEY);return}
-    if(!s.user && s.access_token)s.user=userFromToken(s.access_token);
-    if(!s.expires_at && s.expires_in)s.expires_at=Math.floor(Date.now()/1000)+Number(s.expires_in);
-    localStorage.setItem(SESSION_KEY,JSON.stringify(s));
-  }
-  function parseRedirect(){
-    const hp=new URLSearchParams(location.hash.startsWith('#')?location.hash.slice(1):location.hash);
-    if(hp.get('access_token')){
-      const s={
-        access_token:hp.get('access_token'),
-        refresh_token:hp.get('refresh_token')||'',
-        expires_in:Number(hp.get('expires_in')||3600),
-        expires_at:Number(hp.get('expires_at')||0),
-        token_type:hp.get('token_type')||'bearer'
-      };
-      s.user=userFromToken(s.access_token);
-      storeSession(s);
-      history.replaceState(null,'',location.pathname+location.search);
-      return s;
-    }
-    return null;
-  }
-  async function refreshSession(s){
-    if(!s?.refresh_token)return null;
-    try{
-      const r=await fetch(baseUrl+'/auth/v1/token?grant_type=refresh_token',{
-        method:'POST',
-        headers:{'apikey':apiKey,'Content-Type':'application/json'},
-        body:JSON.stringify({refresh_token:s.refresh_token})
-      });
-      const j=await r.json().catch(()=>({}));
-      if(!r.ok)throw new Error(j.msg||j.message||j.error_description||('HTTP '+r.status));
-      const n={...j,user:j.user||userFromToken(j.access_token)};
-      storeSession(n);
-      return n;
-    }catch(_){return null}
-  }
-  async function currentSession(){
-    let s=parseRedirect()||getStored();
-    if(s?.access_token){
-      const exp=Number(s.expires_at||userFromToken(s.access_token)?.exp||0);
-      if(exp && exp < Math.floor(Date.now()/1000)+60){
-        s=await refreshSession(s);
-      }
-    }
-    return s?.access_token?s:null;
-  }
-  async function authHeaders(){
-    const s=await currentSession();
-    const h={'apikey':apiKey};
-    if(s?.access_token)h['Authorization']='Bearer '+s.access_token;
-    return h;
-  }
-  async function readError(r){
-    let j=null; try{j=await r.json()}catch(_){}
-    return {message:j?.message||j?.msg||j?.error_description||j?.hint||('HTTP '+r.status),status:r.status,details:j};
-  }
-
-  class QueryBuilder{
-    constructor(table){this.table=table;this.params=new URLSearchParams();this.single=false}
-    select(cols='*'){this.params.set('select',cols);return this}
-    eq(k,v){this.params.set(k,'eq.'+v);return this}
-    order(k){this.params.set('order',k+'.asc');return this}
-    maybeSingle(){this.single=true;return this.execute()}
-    then(resolve,reject){return this.execute().then(resolve,reject)}
-    async execute(){
-      try{
-        const h=await authHeaders();
-        const r=await fetch(baseUrl+'/rest/v1/'+encodeURIComponent(this.table)+'?'+this.params.toString(),{headers:h});
-        if(!r.ok)return {data:null,error:await readError(r)};
-        const j=await r.json();
-        return {data:this.single?(j[0]||null):j,error:null};
-      }catch(e){return {data:null,error:{message:e.message||String(e)}}}
-    }
-    async upsert(data,opts={}){
-      try{
-        const h=await authHeaders();
-        h['Content-Type']='application/json';
-        h['Prefer']='resolution=merge-duplicates,return=representation';
-        const q=new URLSearchParams();
-        if(opts.onConflict)q.set('on_conflict',opts.onConflict);
-        const r=await fetch(baseUrl+'/rest/v1/'+encodeURIComponent(this.table)+(q.toString()?'?'+q.toString():''),{
-          method:'POST',headers:h,body:JSON.stringify(data)
-        });
-        if(!r.ok)return {data:null,error:await readError(r)};
-        const t=await r.text(); return {data:t?JSON.parse(t):null,error:null};
-      }catch(e){return {data:null,error:{message:e.message||String(e)}}}
-    }
-  }
-
-  const auth={
-    onAuthStateChange(cb){authCb=cb;return {data:{subscription:{unsubscribe(){authCb=null}}}}},
-    async getSession(){
-      const s=await currentSession();
-      if(s && authCb) setTimeout(()=>authCb('SIGNED_IN',s),0);
-      return {data:{session:s},error:null};
-    },
-    async signInWithOtp({email,options={}}){
-      try{
-        const redirect=options.emailRedirectTo||location.href.split('#')[0];
-        const r=await fetch(baseUrl+'/auth/v1/otp?redirect_to='+encodeURIComponent(redirect),{
-          method:'POST',
-          headers:{'apikey':apiKey,'Content-Type':'application/json'},
-          body:JSON.stringify({email,create_user:true})
-        });
-        if(!r.ok)return {data:null,error:await readError(r)};
-        return {data:{},error:null};
-      }catch(e){return {data:null,error:{message:e.message||String(e)}}}
-    },
-    async signOut(){
-      const s=getStored();
-      try{
-        if(s?.access_token)await fetch(baseUrl+'/auth/v1/logout',{
-          method:'POST',headers:{'apikey':apiKey,'Authorization':'Bearer '+s.access_token}
-        });
-      }catch(_){}
-      storeSession(null);
-      if(authCb)setTimeout(()=>authCb('SIGNED_OUT',null),0);
-      return {error:null};
-    }
-  };
-
-  return {
-    auth,
-    from(table){return new QueryBuilder(table)},
-    channel(){return {on(){return this},subscribe(){return this}}}
-  };
+  const SESSION_KEY='party48_supabase_session_v1'; let authCb=null;
+  function b64urlDecode(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';try{return decodeURIComponent(Array.prototype.map.call(atob(s),c=>'%' + ('00'+c.charCodeAt(0).toString(16)).slice(-2)).join(''))}catch(_){try{return atob(s)}catch(__){return ''}}}
+  function userFromToken(token){try{const payload=JSON.parse(b64urlDecode(token.split('.')[1]));return {id:payload.sub,email:payload.email||'',...payload}}catch(_){return null}}
+  function getStored(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch(_){return null}}
+  function storeSession(s){if(!s){localStorage.removeItem(SESSION_KEY);return}if(!s.user&&s.access_token)s.user=userFromToken(s.access_token);if(!s.expires_at&&s.expires_in)s.expires_at=Math.floor(Date.now()/1000)+Number(s.expires_in);localStorage.setItem(SESSION_KEY,JSON.stringify(s))}
+  async function refreshSession(s){if(!s?.refresh_token)return null;try{const r=await fetch(baseUrl+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:{'apikey':apiKey,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:s.refresh_token})});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.msg||j.message||j.error_description||('HTTP '+r.status));const n={...j,user:j.user||userFromToken(j.access_token)};storeSession(n);return n}catch(_){return null}}
+  async function currentSession(){let s=getStored();if(s?.access_token){const exp=Number(s.expires_at||userFromToken(s.access_token)?.exp||0);if(exp&&exp<Math.floor(Date.now()/1000)+60)s=await refreshSession(s)}return s?.access_token?s:null}
+  async function authHeaders(){const s=await currentSession();const h={'apikey':apiKey};if(s?.access_token)h['Authorization']='Bearer '+s.access_token;return h}
+  async function readError(r){let j=null;try{j=await r.json()}catch(_){}return {message:j?.message||j?.msg||j?.error_description||j?.hint||('HTTP '+r.status),status:r.status,details:j}}
+  class QueryBuilder{constructor(table){this.table=table;this.params=new URLSearchParams();this.single=false}select(cols='*'){this.params.set('select',cols);return this}eq(k,v){this.params.set(k,'eq.'+v);return this}order(k){this.params.set('order',k+'.asc');return this}maybeSingle(){this.single=true;return this.execute()}then(resolve,reject){return this.execute().then(resolve,reject)}async execute(){try{const h=await authHeaders();const r=await fetch(baseUrl+'/rest/v1/'+encodeURIComponent(this.table)+'?'+this.params.toString(),{headers:h});if(!r.ok)return {data:null,error:await readError(r)};const j=await r.json();return {data:this.single?(j[0]||null):j,error:null}}catch(e){return {data:null,error:{message:e.message||String(e)}}}}async upsert(data,opts={}){try{const h=await authHeaders();h['Content-Type']='application/json';h['Prefer']='resolution=merge-duplicates,return=representation';const q=new URLSearchParams();if(opts.onConflict)q.set('on_conflict',opts.onConflict);const r=await fetch(baseUrl+'/rest/v1/'+encodeURIComponent(this.table)+(q.toString()?'?'+q.toString():''),{method:'POST',headers:h,body:JSON.stringify(data)});if(!r.ok)return {data:null,error:await readError(r)};const t=await r.text();return {data:t?JSON.parse(t):null,error:null}}catch(e){return {data:null,error:{message:e.message||String(e)}}}}}
+  const auth={onAuthStateChange(cb){authCb=cb;return {data:{subscription:{unsubscribe(){authCb=null}}}}},async getSession(){const s=await currentSession();if(s&&authCb)setTimeout(()=>authCb('SIGNED_IN',s),0);return {data:{session:s},error:null}},async signInWithPassword({email,password}){try{const r=await fetch(baseUrl+'/auth/v1/token?grant_type=password',{method:'POST',headers:{'apikey':apiKey,'Content-Type':'application/json'},body:JSON.stringify({email,password})});if(!r.ok)return {data:null,error:await readError(r)};const j=await r.json().catch(()=>({}));const session={...j,user:j.user||userFromToken(j.access_token)};storeSession(session);if(authCb)setTimeout(()=>authCb('SIGNED_IN',session),0);return {data:{session,user:session.user},error:null}}catch(e){return {data:null,error:{message:e.message||String(e)}}}},async signOut(){const s=getStored();try{if(s?.access_token)await fetch(baseUrl+'/auth/v1/logout',{method:'POST',headers:{'apikey':apiKey,'Authorization':'Bearer '+s.access_token}})}catch(_){}storeSession(null);if(authCb)setTimeout(()=>authCb('SIGNED_OUT',null),0);return {error:null}}};
+  return {auth,from(table){return new QueryBuilder(table)},channel(){return {on(){return this},subscribe(){return this}}}}
 }
 </script>
-
 <script>
 const URL='https://deuzexrjpzwgohiacbph.supabase.co',KEY='sb_publishable_rcTZItogYlTTVJAA4xfzyA_FLqxeP5D';let sb=createDirectClient(URL,KEY),user=null,Q=[],C=[],meta={},qp=new Map(),set=[],pos=0,locked=false,cards=[],cpos=0,flipped=false;
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function toast(s){$('toast').textContent=s;$('toast').classList.remove('hidden');setTimeout(()=>$('toast').classList.add('hidden'),3000)}function p(id){return qp.get(id)||{attempts:0,correct_count:0,wrong_count:0,is_wrong:false,mastered:false,starred:false}}
 async function init(){try{$('cloud').textContent='正在直连云端';sb.auth.onAuthStateChange((_e,s)=>{user=s?.user||null;setTimeout(authUI,0)});const r=await sb.auth.getSession();user=r.data.session?.user||null;await loadBank();await authUI()}catch(e){console.error(e);$('cloud').textContent='云端连接失败';$('accountText').innerHTML='<span class="warn">连接失败：'+esc(e.message||e)+'</span>'}}
 async function loadBank(){const [qr,cr,mr]=await Promise.all([sb.from('questions').select('*').eq('status','published').order('external_id'),sb.from('cards').select('*').eq('status','published').order('external_id'),sb.from('app_meta').select('*').eq('id','main').maybeSingle()]);if(qr.error||cr.error)throw(qr.error||cr.error);Q=qr.data||[];C=cr.data||[];meta=mr.data||{};$('cloud').textContent='题库在线';$('version').textContent='题库版本：'+(meta.bank_version||'V2');$('count').textContent='题库：'+Q.length+'题';selectors();stats();newQuiz();resetCards();renderWrong();renderStar()}
-async function authUI(){if(user){$('loginBox').classList.add('hidden');$('logoutBox').classList.remove('hidden');$('accountTitle').textContent='已登录 · 云同步开启';$('accountText').textContent=user.email+' · 学习进度会在设备间同步';await loadProgress();$('cloud').textContent='云同步已连接'}else{$('loginBox').classList.remove('hidden');$('logoutBox').classList.add('hidden');$('accountTitle').textContent='登录后开启跨设备同步';$('accountText').textContent='同一个邮箱在手机和电脑登录即可同步错题、收藏和学习进度。'}}
-async function login(){const email=$('email').value.trim();if(!email)return toast('请先输入邮箱');const btn=$('loginBtn');btn.disabled=true;btn.textContent='正在发送…';const redirect=location.origin+location.pathname.replace(/direct\.html$/,'');const {error}=await sb.auth.signInWithOtp({email,options:{emailRedirectTo:redirect}});btn.disabled=false;btn.textContent='发送登录链接';toast(error?'发送失败：'+error.message:'登录链接已发送，请查收邮箱')}
+async function authUI(){if(user){$('loginBox').classList.add('hidden');$('logoutBox').classList.remove('hidden');$('accountTitle').textContent='已登录 · 云同步开启';$('accountText').textContent=user.email+' · 学习进度会在设备间同步';await loadProgress();$('cloud').textContent='云同步已连接'}else{$('loginBox').classList.remove('hidden');$('logoutBox').classList.add('hidden');$('accountTitle').textContent='登录后开启跨设备同步';$('accountText').textContent='使用同一邮箱和密码登录手机与电脑，即可同步错题、收藏和学习进度。'}}
+async function login(){const email=$('email').value.trim(),password=$('password').value;if(!email)return toast('请先输入邮箱');if(!password)return toast('请输入密码');const btn=$('loginBtn');btn.disabled=true;btn.textContent='正在登录…';const {error}=await sb.auth.signInWithPassword({email,password});btn.disabled=false;btn.textContent='登录';if(error){toast('登录失败：'+error.message);return}toast('登录成功，云同步已开启')}
 async function logout(){await sb.auth.signOut();qp.clear();user=null;stats();renderWrong();renderStar();toast('已退出登录')}
 async function loadProgress(){if(!user)return;const {data,error}=await sb.from('question_progress').select('*').eq('user_id',user.id);if(!error)qp=new Map((data||[]).map(x=>[x.question_id,x]));stats();renderWrong();renderStar()}
 async function saveQ(id,x){if(!user)return;await sb.from('question_progress').upsert({user_id:user.id,question_id:id,attempts:x.attempts||0,correct_count:x.correct_count||0,wrong_count:x.wrong_count||0,is_wrong:!!x.is_wrong,mastered:!!x.mastered,starred:!!x.starred,last_answer:x.last_answer??null},{onConflict:'user_id,question_id'})}
@@ -183,11 +47,7 @@ function renderQ(){locked=false;const b=$('quizBox');if(!set.length){b.innerHTML
 async function answer(i,el){if(locked)return;locked=true;const q=set[pos],ans=Number(q.answer),buttons=[...document.querySelectorAll('.option')];buttons.forEach((o,j)=>{o.disabled=true;if(j===ans)o.classList.add('correct')});const good=i===ans;if(!good)el.classList.add('wrong');const x={...p(q.id)};x.attempts=(x.attempts||0)+1;x.correct_count=(x.correct_count||0)+(good?1:0);x.wrong_count=(x.wrong_count||0)+(good?0:1);x.is_wrong=x.is_wrong||!good;x.last_answer=i;qp.set(q.id,x);stats();$('exp').classList.remove('hidden');$('next').disabled=false;await saveQ(q.id,x)}
 async function starCurrent(){const q=set[pos],x={...p(q.id),starred:!p(q.id).starred};qp.set(q.id,x);stats();renderQ();renderStar();await saveQ(q.id,x)}async function masterCurrent(){const q=set[pos],x={...p(q.id),mastered:!p(q.id).mastered};qp.set(q.id,x);stats();renderQ();renderWrong();await saveQ(q.id,x)}
 function tab(id){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$(id).classList.remove('hidden');if(id==='wrong')renderWrong();if(id==='star')renderStar()}
-function renderWrong(){const rows=Q.filter(q=>{const x=p(q.id);return x.is_wrong&&!x.mastered});$('wrongBox').innerHTML=rows.length?rows.map((q,i)=>'<div class="item"><b>'+(i+1)+'. ['+esc(q.category)+'] '+esc(q.question)+'</b><div class="small">答案：'+String.fromCharCode(65+Number(q.answer))+'. '+esc((q.options||[])[Number(q.answer)])+'<br>'+esc(q.explanation||'')+'</div></div>').join(''):'<div class="good">目前没有待复习错题。</div>'}
-function renderStar(){const rows=Q.filter(q=>p(q.id).starred);$('starBox').innerHTML=rows.length?rows.map((q,i)=>'<div class="item"><b>'+(i+1)+'. ['+esc(q.category)+'] '+esc(q.question)+'</b><div class="small">答案：'+String.fromCharCode(65+Number(q.answer))+'. '+esc((q.options||[])[Number(q.answer)])+'</div></div>').join(''):'<div class="small">暂时没有收藏。</div>'}
-function resetCards(){const cat=$('cardCat').value;cards=C.filter(x=>cat==='ALL'||x.category===cat);cpos=0;flipped=false;renderCard()}function renderCard(){if(!cards.length){$('cardBox').innerHTML='<span class="small">暂无卡片</span>';$('cardPos').textContent='';return}const x=cards[cpos];$('cardPos').textContent=(cpos+1)+' / '+cards.length;$('cardBox').innerHTML=flipped?'<div>'+esc(x.back)+'</div>':'<b>'+esc(x.front)+'</b>'}function flipCard(){flipped=!flipped;renderCard()}function prevCard(){if(!cards.length)return;cpos=(cpos-1+cards.length)%cards.length;flipped=false;renderCard()}function nextCard(){if(!cards.length)return;cpos=(cpos+1)%cards.length;flipped=false;renderCard()}async function reloadAll(){await loadBank();if(user)await loadProgress();toast('题库已刷新')}
-init();
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js',{scope:'./'}).catch(e=>console.warn('SW register failed',e)));
-}
+function renderWrong(){const rows=Q.filter(q=>{const x=p(q.id);return x.is_wrong&&!x.mastered});$('wrongBox').innerHTML=rows.length?rows.map((q,i)=>'<div class="item"><b>'+(i+1)+'. '+esc(q.question)+'</b><div class="small">答案：'+String.fromCharCode(65+Number(q.answer))+'. '+esc((q.options||[])[Number(q.answer)])+'<br>'+esc(q.explanation||'')+'</div></div>').join(''):'<div class="good">目前没有待复习错题。</div>'}function renderStar(){const rows=Q.filter(q=>p(q.id).starred);$('starBox').innerHTML=rows.length?rows.map((q,i)=>'<div class="item"><b>'+(i+1)+'. '+esc(q.question)+'</b></div>').join(''):'<div class="small">暂时没有收藏。</div>'}
+function resetCards(){const cat=$('cardCat').value;cards=C.filter(x=>cat==='ALL'||x.category===cat);cpos=0;flipped=false;renderCard()}function renderCard(){if(!cards.length){$('cardBox').innerHTML='<span class="small">暂无卡片</span>';return}const x=cards[cpos];$('cardPos').textContent=(cpos+1)+' / '+cards.length;$('cardBox').innerHTML=flipped?'<div>'+esc(x.back)+'</div>':'<b>'+esc(x.front)+'</b>'}function flipCard(){flipped=!flipped;renderCard()}function prevCard(){if(!cards.length)return;cpos=(cpos-1+cards.length)%cards.length;flipped=false;renderCard()}function nextCard(){if(!cards.length)return;cpos=(cpos+1)%cards.length;flipped=false;renderCard()}async function reloadAll(){await loadBank();if(user)await loadProgress();toast('题库已刷新')}
+init();if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js',{scope:'./'}).catch(e=>console.warn('SW register failed',e)))}
 </script></body></html>
