@@ -3,7 +3,7 @@
   "short_name": "党校学习",
   "description": "第48期校党校刷题、背诵卡、错题与云同步学习助手",
   "lang": "zh-CN",
-  "start_url": "./direct.html",
+  "start_url": "./app.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
