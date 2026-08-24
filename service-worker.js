@@ -1,4 +1,4 @@
-const CACHE = 'party-school-48-v4';
+const CACHE = 'party-school-48-v5';
 const APP_SHELL = [
   './',
   './index.html',
@@ -6,7 +6,9 @@ const APP_SHELL = [
   './manifest.webmanifest',
   './icon.svg',
   './icon-192.png',
-  './icon-512.png'
+  './icon-512.png',
+  './compact.css',
+  './compact.js'
 ];
 
 self.addEventListener('install', event => {
@@ -38,6 +40,26 @@ async function networkFirst(request, fallback) {
   }
 }
 
+async function compactHtml(response) {
+  if (!response || !response.ok) return response;
+  const type = response.headers.get('content-type') || '';
+  if (!type.includes('text/html')) return response;
+  let text = await response.text();
+  if (!text.includes('id="accountTitle"')) {
+    return new Response(text, {status: response.status, statusText: response.statusText, headers: response.headers});
+  }
+  if (!text.includes('compact.css')) {
+    text = text.replace('</head>', '<link rel="stylesheet" href="./compact.css"></head>');
+  }
+  if (!text.includes('compact.js')) {
+    text = text.replace('</body>', '<script src="./compact.js"></script></body>');
+  }
+  const headers = new Headers(response.headers);
+  headers.set('content-type','text/html; charset=utf-8');
+  headers.delete('content-length');
+  return new Response(text, {status: response.status, statusText: response.statusText, headers});
+}
+
 self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
@@ -45,7 +67,10 @@ self.addEventListener('fetch', event => {
 
   if (url.origin === self.location.origin) {
     if (request.mode === 'navigate') {
-      event.respondWith(networkFirst(request, './direct.html'));
+      event.respondWith((async()=>{
+        const response = await networkFirst(request, './direct.html');
+        return compactHtml(response);
+      })());
       return;
     }
     event.respondWith(
