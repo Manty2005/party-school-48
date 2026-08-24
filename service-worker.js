@@ -1,7 +1,8 @@
-const CACHE = 'party-school-48-v5';
+const CACHE = 'party-school-48-v6';
 const APP_SHELL = [
   './',
   './index.html',
+  './app.html',
   './direct.html',
   './manifest.webmanifest',
   './icon.svg',
@@ -48,12 +49,8 @@ async function compactHtml(response) {
   if (!text.includes('id="accountTitle"')) {
     return new Response(text, {status: response.status, statusText: response.statusText, headers: response.headers});
   }
-  if (!text.includes('compact.css')) {
-    text = text.replace('</head>', '<link rel="stylesheet" href="./compact.css"></head>');
-  }
-  if (!text.includes('compact.js')) {
-    text = text.replace('</body>', '<script src="./compact.js"></script></body>');
-  }
+  if (!text.includes('compact.css')) text = text.replace('</head>', '<link rel="stylesheet" href="./compact.css?v=6"></head>');
+  if (!text.includes('compact.js')) text = text.replace('</body>', '<script src="./compact.js?v=6"></script></body>');
   const headers = new Headers(response.headers);
   headers.set('content-type','text/html; charset=utf-8');
   headers.delete('content-length');
@@ -68,16 +65,18 @@ self.addEventListener('fetch', event => {
   if (url.origin === self.location.origin) {
     if (request.mode === 'navigate') {
       event.respondWith((async()=>{
-        const response = await networkFirst(request, './direct.html');
-        return compactHtml(response);
+        const response = await networkFirst(request, './app.html');
+        return url.pathname.endsWith('/direct.html') ? compactHtml(response) : response;
       })());
+      return;
+    }
+    if (url.pathname.endsWith('/compact.css') || url.pathname.endsWith('/compact.js')) {
+      event.respondWith(networkFirst(request));
       return;
     }
     event.respondWith(
       caches.match(request).then(cached => cached || fetch(request).then(response => {
-        if (response && response.ok) {
-          caches.open(CACHE).then(cache => cache.put(request, response.clone()));
-        }
+        if (response && response.ok) caches.open(CACHE).then(cache => cache.put(request, response.clone()));
         return response;
       }))
     );
