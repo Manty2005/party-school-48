@@ -1,11 +1,10 @@
-const CACHE = 'party-school-48-v1';
+const CACHE = 'party-school-48-v2';
 const APP_SHELL = [
   './',
   './index.html',
   './direct.html',
   './manifest.webmanifest',
-  './icon-192.png',
-  './icon-512.png'
+  './icon.svg'
 ];
 
 self.addEventListener('install', event => {
