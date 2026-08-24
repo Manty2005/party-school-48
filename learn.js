@@ -112,6 +112,27 @@ const state={cat:'全部',mode:'lessons',done:new Set(JSON.parse(localStorage.ge
 const esc2=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function lines(s){return esc2(s).replace(/\n/g,'<br>')}
 function saveDone(){localStorage.setItem('party48_lesson_done',JSON.stringify([...state.done]))}
+let cloudUid='';
+async function loadCloudDone(){
+  try{
+    if(typeof user==='undefined'||!user?.id||typeof sb==='undefined')return;
+    if(cloudUid===user.id)return;
+    const {data,error}=await sb.from('lesson_progress').select('*').eq('user_id',user.id);
+    if(error)return;
+    state.done=new Set((data||[]).filter(x=>x.completed).map(x=>x.lesson_id));
+    cloudUid=user.id;saveDone();
+    if(document.getElementById('learnRoot'))renderStudy();
+  }catch(_){}
+}
+async function saveCloudDone(id){
+  try{
+    if(typeof user==='undefined'||!user?.id||typeof sb==='undefined')return;
+    await sb.from('lesson_progress').upsert(
+      {user_id:user.id,lesson_id:id,completed:state.done.has(id)},
+      {onConflict:'user_id,lesson_id'}
+    );
+  }catch(_){}
+}
 function cats(){return ['全部',...new Set([...LESSONS.map(x=>x.cat),...MEMORY.map(x=>x.cat)])]}
 function ensureUI(){
  const nav=document.querySelector('.nav'); if(!nav||document.getElementById('learnNavBtn')) return;
@@ -137,7 +158,7 @@ function renderLessons(){
  const box=document.getElementById('learnContent');
  box.innerHTML='<div class="learn-hero"><h2>V4 系统学习</h2><div class="small">先理解，再按规范表述，最后去原文背诵。当前模块：'+esc2(state.cat)+'</div><div class="learn-progress"><i style="width:'+pct+'%"></i></div><div class="small">已学 '+done+' / '+all.length+' · '+pct+'%</div></div>'+
  (all.length?all.map(x=>'<article class="learn-card"><div class="learn-meta"><span class="learn-tag">'+esc2(x.cat)+'</span>'+(x.hot?'<span class="learn-tag hot">重点</span>':'')+'</div><h3>'+esc2(x.title)+'</h3><div class="learn-block learn-understand"><b>先讲懂</b>'+esc2(x.explain)+'</div><div class="learn-block learn-standard"><b>规范表述</b>'+esc2(x.standard)+'</div><div class="learn-block learn-pitfall"><b>易错辨析</b>'+esc2(x.pit)+'</div><div class="learn-block learn-test"><b>自测</b>'+esc2(x.test)+'</div><div class="learn-actions"><button data-done="'+x.id+'" class="'+(state.done.has(x.id)?'done':'')+'">'+(state.done.has(x.id)?'✓ 已学会':'标记已学')+'</button><button data-memory="'+esc2(x.cat)+'">去背原文</button><button data-quiz="'+esc2(x.cat)+'">刷本专题题目</button></div></article>').join(''):'<div class="study-empty">暂无内容</div>');
- box.querySelectorAll('[data-done]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.done;state.done.has(id)?state.done.delete(id):state.done.add(id);saveDone();renderLessons()});
+ box.querySelectorAll('[data-done]').forEach(btn=>btn.onclick=async()=>{const id=btn.dataset.done;state.done.has(id)?state.done.delete(id):state.done.add(id);saveDone();renderLessons();await saveCloudDone(id)});
  box.querySelectorAll('[data-memory]').forEach(btn=>btn.onclick=()=>{state.cat=btn.dataset.memory;state.mode='memory';renderStudy()});
  box.querySelectorAll('[data-quiz]').forEach(btn=>btn.onclick=()=>{const c=btn.dataset.quiz;const sel=document.getElementById('cat');if(sel&&[...sel.options].some(o=>o.value===c)){sel.value=c;newQuiz()}tab('quiz')});
 }
@@ -152,5 +173,5 @@ function renderMemory(){
  if(hide)hide.onclick=()=>{box.querySelectorAll('.memory-text').forEach(x=>x.classList.add('masked'));box.querySelectorAll('[data-reveal]').forEach(x=>x.textContent='显示原文')};
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ensureUI);else ensureUI();
-setTimeout(ensureUI,300);setTimeout(ensureUI,1000);
+setTimeout(ensureUI,300);setTimeout(ensureUI,1000);setInterval(()=>{const uid=(typeof user!=='undefined'&&user?.id)||'';if(uid!==cloudUid){cloudUid='';if(uid)loadCloudDone()}},1200);
 })();
