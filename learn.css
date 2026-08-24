@@ -1,0 +1,47 @@
+
+/* V7 学习模块 */
+.learn-shell{display:grid;grid-template-columns:240px minmax(0,1fr);gap:14px}
+.learn-side{background:#fffaf5;border:1px solid #eadfd5;border-radius:16px;padding:12px;align-self:start;position:sticky;top:10px}
+.learn-side h3{margin:2px 0 10px;color:#7c1720;font-size:16px}
+.learn-filter{display:flex;flex-direction:column;gap:6px}
+.learn-filter button{width:100%;text-align:left;padding:9px 10px;border-radius:10px;background:#f5efea}
+.learn-filter button.active{background:#981f2b;color:#fff}
+.learn-main{min-width:0}
+.learn-hero{background:linear-gradient(135deg,#fff8ef,#fff);border:1px solid #ecdccf;border-radius:16px;padding:16px;margin-bottom:12px}
+.learn-hero h2{margin:0 0 6px;color:#7c1720;font-size:21px}
+.learn-progress{height:8px;background:#eee4dc;border-radius:999px;overflow:hidden;margin:10px 0}
+.learn-progress i{display:block;height:100%;background:#981f2b;width:0}
+.learn-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.learn-card{border:1px solid #e8ddd5;border-radius:16px;background:#fff;padding:16px;margin-bottom:11px}
+.learn-card h3{margin:0 0 8px;color:#741720;font-size:18px}
+.learn-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}
+.learn-tag{font-size:11px;padding:4px 7px;border-radius:999px;background:#f3ece6;color:#6f5146}
+.learn-tag.hot{background:#fff0dd;color:#9a5b00}
+.learn-block{border-radius:12px;padding:12px 13px;margin:9px 0;line-height:1.75}
+.learn-block b{display:block;margin-bottom:4px}
+.learn-understand{background:#fbf6f0}
+.learn-standard{background:#eef5fb}
+.learn-pitfall{background:#fff1f1}
+.learn-test{background:#eef8f0}
+.learn-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.learn-actions button.done{background:#e8f5ec;color:#267044}
+.memory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.memory-card{border:1px solid #e7ddd4;border-radius:15px;background:#fff;padding:14px}
+.memory-card h3{margin:0 0 6px;color:#741720;font-size:17px}
+.memory-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.memory-level{font-size:11px;padding:4px 7px;border-radius:999px;background:#8f1d28;color:#fff;white-space:nowrap}
+.memory-text{margin-top:10px;line-height:1.8;white-space:pre-line;background:#fffaf4;border:1px dashed #dccabe;border-radius:11px;padding:12px}
+.memory-text.masked{filter:blur(7px);user-select:none}
+.memory-note{font-size:12px;color:#776b64;margin-top:7px}
+.memory-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+.learn-search{flex:1;min-width:180px}
+.study-subnav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.study-subnav button.active{background:#981f2b;color:white}
+.study-empty{padding:25px;text-align:center;color:#766b65}
+@media(max-width:760px){
+ .learn-shell{display:block}.learn-side{position:static;margin-bottom:10px}
+ .learn-filter{display:flex;flex-direction:row;overflow:auto;padding-bottom:2px}
+ .learn-filter button{width:auto;white-space:nowrap}
+ .memory-grid{grid-template-columns:1fr}
+ .learn-card{padding:14px}.learn-hero{padding:14px}
+}
