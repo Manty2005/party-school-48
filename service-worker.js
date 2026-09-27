@@ -1,4 +1,4 @@
-const CACHE = 'party-school-48-v8';
+const CACHE = 'party-school-48-v9';
 const APP_SHELL = [
   './',
   './index.html',
@@ -7,7 +7,6 @@ const APP_SHELL = [
   './manifest.webmanifest',
   './icon.svg',
   './icon-192.png',
-  './icon-512.png',
   './compact.css',
   './compact.js',
   './learn.css',
