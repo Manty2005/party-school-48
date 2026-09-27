@@ -1,7 +1,7 @@
 {
   "name": "第48期校党校学习助手",
   "short_name": "党校学习",
-  "description": "第48期校党校系统学习、原文背诵、刷题、错题与云同步学习助手",
+  "description": "200题完整电子正文、十天每日背诵、重点提示与遮挡自测",
   "lang": "zh-CN",
   "start_url": "./app.html",
   "scope": "./",

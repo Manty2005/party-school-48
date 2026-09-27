@@ -1,62 +1,46 @@
 (function(){
-const DAYS=[
-['09-27','理论 1—22 题','第 1—3 页','党的性质、最高理想、行动指南、马克思主义基本观点；“两个结合”“十个明确”“十四个坚持”“十三个方面成就”','先背党的性质和指导思想，再把新思想的三组数字框架分开。'],
-['09-28','理论 23—44 题','第 3—5 页','党的中心任务、中国式现代化、四个意识/四个自信/两个维护、五位一体/四个全面、党和人民关系','中国式现代化按“五个中国特色—本质要求”成组回忆；相近概念做对照。'],
-['09-29','理论 45—66 题','第 5—7 页','民主、教育科技人才、核心价值观、生态文明、一国两制、国家安全、五个必由之路、新质生产力、改革开放','记清“首要任务”“第一生产力/第一资源/第一动力”等易混表述。'],
-['09-30','党章党纪 1—25 题','第 7—9 页','党的建设成果与历史任务、基本路线、四项基本原则、改革开放、发展理念与新发展格局','按“是什么—为什么—怎么做”把党章总纲类句子串成逻辑。'],
-['10-01','党章党纪 26—50 题','第 9—11 页','党员条件、义务权利、入党程序、预备期、党龄、组织生活、民主集中制、基层组织','党员八项义务和权利按顺序背；预备党员权利差别、党龄起算日要精确。'],
-['10-02','党章党纪 51—74 题','第 11—13 页','党的纪律、纪律处分、留党察看、纪委职责、党组、党徽党旗、纪律处分原则、“四风”与反腐败','五种处分按轻重顺序背；留党察看期间权利和最长年限要成组记。'],
-['10-03','党史 1—20 题','第 13—15 页','建党初心、党的一大/二大、南昌起义、八七会议、井冈山、遵义会议、七七事变、七大、新中国成立','用“年份—事件—历史意义”三列复述，优先记红圈年份和转折点。'],
-['10-04','党史 21—39 题＋校史 1—5 题','第 15—18 页','改革开放、十一届三中全会、历次党代会、两个一百年、百年奋斗重大成就；人大校史起点与陕北公学','党史按时期串联；人大校史先建立 1937→1939→1948→1949→1950→2022 主时间轴。'],
-['10-05','人大校史 6—21 题','第 18—20 页','陕北公学传统、华北联合大学/华北大学、人大建校、校训校歌、校庆日、习近平考察人大讲话与青年要求','重点背“为谁培养人、培养什么人、怎样培养人”、办学方向、人才培养使命演进。'],
-['10-06','四部分闭卷验收','抽查第 1—20 页','200 题按四部分快速口述；只精背卡壳和漏词题；完成一次错题回炉','每题先说关键词，再复述原句。标出完全会、模糊、不会三档；模糊/不会的题进入后续复习。']
-];
-const PARTS=[
-['党的理论学习',66,'1—66 题','1—7 页',1,7],
-['中国共产党章程、党纪党风',74,'1—74 题','7—13 页',7,13],
-['中国共产党历史',39,'1—39 题','13—18 页',13,18],
-['中国人民大学校史',21,'1—21 题','18—20 页',18,20]
-];
-const KEY=[
-['党的性质、宗旨与行动指南','两个先锋队、领导核心、三个代表；最高理想；六项指导思想完整顺序。','第 1 页｜理论 1—3',1],
-['马克思主义基本观点与“两个结合”','唯物史观、辩证唯物主义世界观和方法论；同中国具体实际相结合、同中华优秀传统文化相结合。','第 1—3 页｜理论 7—18',2],
-['新思想三组数字框架','十个明确（理论判断）、十四个坚持（实践方略）、十三个方面成就（实践成果），不要互相串项。','第 2—3 页｜理论 14—16',2],
-['六个必须坚持','人民至上、自信自立、守正创新、问题导向、系统观念、胸怀天下，顺序完整。','第 3 页｜理论 17',3],
-['两个确立、四个意识、四个自信、两个维护','两个确立说核心地位和指导地位；四个意识、四个自信逐项说全；两个维护对应核心和党中央权威、集中统一领导。','第 3—4 页｜理论 19、26—28',4],
-['中国式现代化','五个中国特色、本质要求及其中国共产党领导；全体人民共同富裕不是少数人富裕。','第 4—5 页｜理论 24—25',4],
-['“五位一体”“四个全面”与四种危险/四大考验','五位一体五项建设；四个全面战略布局；四种危险和四大考验各自完整列举。','第 4 页｜理论 29—31',4],
-['党员八项义务、八项权利与入党誓词','逐条按原顺序背；权利第七项的“坚决执行前提下声明保留”；誓词逐字复述。','第 10 页｜党章 31—34',10],
-['入党程序、预备期和党龄','两名正式党员介绍、支部大会通过、上级党组织批准；预备期一年；党龄从转正之日算起。','第 10—11 页｜党章 33—37',10],
-['民主集中制与基层组织','六项原则；集体领导和个人分工负责；正式党员三人以上基层组织的设立要求。','第 11 页｜党章 40—49',11],
-['党纪处分与党风廉政','五种处分、留党察看最长二年、四风、三大优良作风、四种形态、三不腐。','第 12—13 页｜党章 52—74',12],
-['党史重大转折点','1921 建党、1927 南昌起义/八七会议/井冈山、1935 遵义会议、1945 七大、1949 新中国成立、1978 十一届三中全会。','第 14—16 页｜党史',14],
-['人大红色校史时间轴','1937 陕北公学→1939 华北联合大学→1948 华北大学→1949 决定组建→1950 开学典礼→2022 考察人大。','第 18 页｜校史 1—11',18],
-['人大办学使命与青年要求','“为谁培养人、培养什么人、怎样培养人”；党的领导、红色基因、扎根中国大地；“复兴栋梁、强国先锋”。','第 19—20 页｜校史 16—19',19]
-];
-let page=1;
-const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(_){return d}};
-let start=read('party48_plan_start','2026-09-27'),done=new Set(read('party48_plan_done',[]));
+'use strict';
+const Q=window.PARTY48_EXAM||[],root=document.getElementById('examRoot');
+if(Q.length!==200){root.textContent='正文未能完整加载，请联网后刷新页面。';return;}
+const PARTS=['党的理论学习','党章、党纪党风','中国共产党历史','中国人民大学校史'];
+const DAYS=['理论 1—22 题','理论 23—44 题','理论 45—66 题','党章党纪 1—25 题','党章党纪 26—50 题','党章党纪 51—74 题','党史 1—20 题','党史 21—39 题＋校史 1—5 题','校史 6—21 题','200 题闭卷验收'];
+const FOCUS=['党的理论发展与新思想框架','中国式现代化与党的建设','民主、发展、教育和国家安全','党章总纲与基本路线','党员条件、义务、权利和组织制度','纪律处分与作风建设','从建党到社会主义建设','改革开放、新时代与人大起点','人大办学传统与育人使命','全范围回忆，补齐薄弱题'];
+const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d;}catch{return d;}};
+let start=read('party48_plan_start','2026-09-27');if(!/^\d{4}-\d{2}-\d{2}$/.test(start)||isNaN(Date.parse(start)))start='2026-09-27';
+let progress=read('party48_text_progress_v1',{});if(!progress||Array.isArray(progress)||typeof progress!=='object')progress={};
+let selected=Math.max(0,Math.min(9,Math.floor((new Date().setHours(0,0,0,0)-new Date(start+'T00:00:00'))/86400000)));
+let view='day',filter='all',query='',recall=false;const hidden=new Set();
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function dayNo(){return Math.floor((new Date().setHours(0,0,0,0)-new Date(start+'T00:00:00'))/86400000)+1}
-function setup(){const nav=document.querySelector('.nav');if(!nav||document.getElementById('mustMemorizeBtn'))return;
-const b=document.createElement('button');b.id='mustMemorizeBtn';b.textContent='考前必背';b.className='primary';b.onclick=()=>tab('mustmemorize');nav.prepend(b);
-const sec=document.createElement('section');sec.id='mustmemorize';sec.className='panel page hidden';sec.innerHTML='<div id="examRoot"></div>';const quiz=document.getElementById('quiz');quiz?.parentNode?.insertBefore(sec,quiz);render();if(!location.hash)tab('mustmemorize')}
-function render(){const root=document.getElementById('examRoot');if(!root)return;
-const pct=Math.round(done.size/10*100);
-root.innerHTML='<div class="exam-hero"><span class="exam-pill">考试日期 · 10 月 21 日</span><h2>48 期校党校必背资料</h2><p>根据你上传的《中国人民大学党校（行政学校、社会主义学校）发展对象培训班结业考试知识范围》整理。原资料共 200 题：理论 66、党章党纪党风 74、党史 39、人大校史 21。每题以原页为准；原件红圈红线保留，作为你标出的重点。</p><div class="exam-progress"><i style="width:'+pct+'%"></i></div><span class="exam-muted">十天计划完成 '+done.size+' / 10 天</span></div><div class="exam-tabs"><button class="active" data-view="plan">十天背诵计划</button><button data-view="focus">重点内容</button><button data-view="source">原始资料逐页看</button></div><div id="examView"></div>';
-root.querySelectorAll('[data-view]').forEach(x=>x.onclick=()=>{root.querySelectorAll('[data-view]').forEach(y=>y.classList.toggle('active',y===x));if(x.dataset.view==='plan')renderPlan();if(x.dataset.view==='focus')renderFocus();if(x.dataset.view==='source')renderSource()});
-renderPlan()}
-function renderPlan(){const box=document.getElementById('examView');if(!box)return;const current=dayNo();
-box.innerHTML='<div class="exam-plan-intro"><b>每天约 2 小时 15 分钟</b><span>20–25 分钟复习旧题 + 60–70 分钟新背 + 30–35 分钟遮挡复述 + 15 分钟错题。先回忆，再翻页核对；通读不算背会。</span><label>计划开始日期 <input id="planStart" type="date" value="'+esc(start)+'"></label></div><div class="exam-days">'+DAYS.map((d,i)=>'<article class="exam-day '+(i+1===current?'today':'')+' '+(done.has(String(i+1))?'complete':'')+'"><div class="exam-day-head"><span>第 '+(i+1)+' 天 · '+esc(d[0])+'</span><label><input type="checkbox" data-done="'+(i+1)+'" '+(done.has(String(i+1))?'checked':'')+'> 完成</label></div><h3>'+esc(d[1])+'</h3><div class="exam-muted">'+esc(d[2])+' · '+esc(d[3])+'</div><p>'+esc(d[4])+'</p><div class="exam-minutes"><span>复习旧题 25 分</span><span>新背理解 65 分</span><span>遮页复述 35 分</span><span>错题回看 15 分</span></div></article>').join('')+'</div><div class="exam-after">10 天后到考试前还有约两周：每天 30–45 分钟回忆错题，隔天做一次四部分混合抽背；考前两天只看易混点和时间线。若首轮发现复述不完整，优先用这段时间补漏。</div>';
-box.querySelectorAll('[data-done]').forEach(x=>x.onchange=()=>{x.checked?done.add(x.dataset.done):done.delete(x.dataset.done);localStorage.setItem('party48_plan_done',JSON.stringify([...done]));renderPlan()});
-document.getElementById('planStart').onchange=e=>{start=e.target.value||start;localStorage.setItem('party48_plan_start',JSON.stringify(start));renderPlan()}}
-function renderFocus(){const box=document.getElementById('examView');if(!box)return;
-box.innerHTML='<div class="exam-focus-intro"><b>你标注的红圈、红线是第一优先级。</b>再把易混、需要准确复述的成组知识列在这里。先闭卷说完整，再到对应页核对原句。</div><div class="exam-focus-grid">'+KEY.map((x,i)=>'<article class="exam-key"><span>重点 '+String(i+1).padStart(2,'0')+'</span><h3>'+esc(x[0])+'</h3><p>'+esc(x[1])+'</p><small>'+esc(x[2])+'</small><button data-gopage="'+x[3]+'">去原资料核对</button></article>').join('')+'</div>';
-box.querySelectorAll('[data-gopage]').forEach(x=>x.onclick=()=>{page=Number(x.dataset.gopage);document.querySelector('[data-view="source"]').click()})}
-function renderSource(){const box=document.getElementById('examView');if(!box)return;const part=PARTS.find(x=>page>=x[4]&&page<=x[5]);
-box.innerHTML='<div class="exam-source"><div class="exam-source-controls"><button id="prevPage" '+(page===1?'disabled':'')+'>上一页</button><label>第 <select id="pageSelect">'+Array.from({length:20},(_,i)=>'<option value="'+(i+1)+'" '+(page===i+1?'selected':'')+'>'+(i+1)+'</option>').join('')+'</select> / 20 页</label><button id="nextPage" '+(page===20?'disabled':'')+'>下一页</button></div><p>'+esc(part[0])+' · '+esc(part[3])+' · 原件红色标注保留</p><img class="exam-scan" src="./materials/page-'+String(page).padStart(2,'0')+'.jpg" alt="必背资料第 '+page+' 页"><div class="exam-source-controls"><button id="prevPage2" '+(page===1?'disabled':'')+'>上一页</button><button id="nextPage2" '+(page===20?'disabled':'')+'>下一页</button></div></div>';
-document.getElementById('pageSelect').onchange=e=>{page=Number(e.target.value);renderSource()};
-['prevPage','prevPage2'].forEach(id=>document.getElementById(id)?.addEventListener('click',()=>{if(page>1){page--;renderSource()}}));
-['nextPage','nextPage2'].forEach(id=>document.getElementById(id)?.addEventListener('click',()=>{if(page<20){page++;renderSource()}}))}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();setTimeout(setup,400);setTimeout(setup,1200)
+const date=i=>{const d=new Date(start+'T12:00:00');d.setDate(d.getDate()+i);return `${d.getMonth()+1} 月 ${d.getDate()} 日`;};
+const status=q=>progress[q.id]||0;
+const dayQuestions=d=>d===9?Q:Q.filter(q=>q.day===d);
+const reviewDays=()=>[selected-1,selected-3,selected-7].filter(d=>d>=0&&d<9);
+const save=()=>{try{localStorage.setItem('party48_text_progress_v1',JSON.stringify(progress));}catch{document.getElementById('saveNotice').textContent='浏览器未允许保存进度，本次标记刷新后可能丢失。';}};
+function shell(){root.innerHTML=`<section class="dashboard"><div><b id="totalProgress"></b><p>每天 2—3 小时，先完成一轮完整背诵，再用考前两周巩固。</p></div><label>开始日期 <input aria-label="计划开始日期" id="planStart" type="date" value="${esc(start)}"></label></section><p id="saveNotice" role="status"></p><nav class="views" aria-label="学习方式"><button data-view="day">每日背诵</button><button data-view="all">全部 200 题</button><button data-view="weak">待加强</button></nav><div id="days" class="days" aria-label="十天学习日期"></div><section id="dayIntro"></section><div class="tools"><label class="search"><span>查找正文</span><input id="search" type="search" placeholder="输入题目、关键词或题号" autocomplete="off"></label><label>范围 <select id="filter"><option value="all">全部内容</option><option value="hot">建议重点</option><option value="weak">尚未背熟</option></select></label><button id="recall">遮住全部正文自测</button></div><p id="resultCount" role="status"></p><section id="questions" aria-label="完整背诵正文"></section>`;
+root.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{view=b.dataset.view;query='';document.getElementById('search').value='';filter='all';document.getElementById('filter').value='all';recall=false;hidden.clear();render();});
+document.getElementById('planStart').onchange=e=>{if(!e.target.value)return;start=e.target.value;try{localStorage.setItem('party48_plan_start',JSON.stringify(start));}catch{} render();};
+document.getElementById('search').oninput=e=>{query=e.target.value.trim();renderQuestions();};
+document.getElementById('filter').onchange=e=>{filter=e.target.value;renderQuestions();};
+document.getElementById('recall').onclick=()=>{recall=!recall;hidden.clear();renderQuestions();};render();}
+function updateProgress(){document.getElementById('totalProgress').textContent=`已背熟 ${Q.filter(q=>status(q)===2).length} / 200 题`;}
+function render(){updateProgress();root.querySelectorAll('[data-view]').forEach(b=>{b.classList.toggle('active',b.dataset.view===view);b.setAttribute('aria-pressed',String(b.dataset.view===view));});
+const days=document.getElementById('days');days.hidden=view!=='day';days.innerHTML=DAYS.map((d,i)=>`<button class="day-button ${i===selected?'active':''}" data-day="${i}" aria-pressed="${i===selected}"><span>第 ${i+1} 天 · ${date(i)}</span><strong>${i===9?'闭卷验收':dayQuestions(i).length+' 题'}</strong><small>${esc(d)}</small></button>`).join('');
+days.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>{selected=Number(b.dataset.day);recall=selected===9;hidden.clear();query='';filter='all';document.getElementById('search').value='';document.getElementById('filter').value='all';render();document.getElementById('dayIntro').scrollIntoView({block:'start',behavior:'smooth'});});
+const box=document.getElementById('dayIntro');
+if(view==='day'){
+const prior=reviewDays();box.innerHTML=`<article class="intro"><span class="eyebrow">DAY ${String(selected+1).padStart(2,'0')} · ${date(selected)}</span><h2>${esc(FOCUS[selected])}</h2><p>${esc(DAYS[selected])} · 下方直接展示${selected===9?'全部 200 题':'当天 '+dayQuestions(selected).length+' 题'}完整正文</p><div class="session">${(selected===9?['20 分钟：抽查四部分框架','90 分钟：逐题闭卷复述','40 分钟：重背薄弱题','10 分钟：再次抽背']:['25 分钟：回忆旧题与框架','75 分钟：分两段学习新题','40 分钟：遮挡正文复述','10 分钟：记录并重背卡壳题']).map(t=>`<span>${t}</span>`).join('')}</div><p class="guidance">${selected===9?'先遮住正文，看到标题就口述；卡壳或漏关键句时标记“需加强”，然后显示正文重背。':'长题先按段理解，再连起来完整背诵。建议学 35—40 分钟休息 5 分钟；当天长题较多时可把总时间延长到 3 小时。'}</p>${prior.length?'<div class="review-links">今天复习：'+prior.map(d=>`<button data-review="${d}">${date(d)} · ${dayQuestions(d).length} 题</button>`).join('')+'</div>':'<p class="muted">第一天先花 25 分钟理解理论发展的顺序，再开始逐题背诵。</p>'}<details class="after"><summary>十天之后如何复习？每天 2—3 小时够吗？</summary><p>200 题的文字量和长题负担差异很大。每天 2—3 小时可作为首轮安排，能否熟背取决于你的基础和闭卷复述结果；完成阅读不等于背会。当天未通过的题保留在“待加强”。</p><p>默认计划在 10 月 6 日结束首轮。10 月 7—13 日每天用 45—60 分钟回忆待加强题和易混点；10 月 14—18 日每天做四部分混合抽背；10 月 19—20 日重点复习仍会卡壳的题、数字、时间和长题。考试日期为 10 月 21 日。</p></details></article>`;
+box.querySelectorAll('[data-review]').forEach(b=>b.onclick=()=>{selected=Number(b.dataset.review);recall=true;hidden.clear();render();});
+}else box.innerHTML=`<article class="intro"><h2>${view==='all'?'完整电子知识库':'待加强的内容'}</h2><p>${view==='all'?'四部分 200 题，保留资料的题号与完整表述。':'这里包括未学习和已标记“需加强”的题目；背熟后可从本页移出。'}</p></article>`;
+renderQuestions();}
+const keywords=/两个先锋队|实现共产主义|实事求是|群众路线|独立自主|人民至上|自信自立|守正创新|问题导向|系统观念|胸怀天下|十个明确|十四个坚持|十三个方面成就|两个结合|两个确立|四个意识|四个自信|两个维护|五位一体|四个全面|中国式现代化|全心全意为人民服务|民主集中制|表决权|选举权|被选举权|预备期|党龄|首要任务|第一要务|第一生产力|第一资源|第一动力|根本保证|立德树人|为党育人|为国育才|复兴栋梁|强国先锋|[一二三四五六七八九十两〇0-9]+(?:年|月|日|项|种|个月|人以上)/g;
+function fullText(q){const lines=q.text.replace(/（([一二三四五六七八九十]+)）/g,'\n（$1）').split('\n');return lines.map(line=>`<p>${esc(line).replace(keywords,m=>'<mark>'+m+'</mark>')}</p>`).join('');}
+function renderQuestions(){let list=view==='all'?Q:view==='weak'?Q.filter(q=>status(q)!==2):dayQuestions(selected);
+if(filter==='hot')list=list.filter(q=>q.important);if(filter==='weak')list=list.filter(q=>status(q)!==2);
+if(query)list=list.filter(q=>(q.title+q.text+PARTS[q.part]+' '+q.number+' '+q.id).includes(query));
+document.getElementById('recall').textContent=recall?'显示全部正文':'遮住全部正文自测';
+document.getElementById('resultCount').textContent=`显示 ${list.length} 题 · ${list.filter(q=>status(q)===2).length} 题已背熟 · 正文完整保留，黄色标出记忆关键词`;
+document.getElementById('questions').innerHTML=list.length?list.map(q=>{const hide=recall?!hidden.has(q.id):hidden.has(q.id);return `<article class="question ${status(q)===2?'mastered':''}" id="q-${q.id}"><div class="meta"><span>${PARTS[q.part]} · 第 ${q.number} 题</span>${q.important?'<span class="priority">建议重点</span>':''}<span>${q.text.length} 字</span></div><h3>${esc(q.title)}</h3><div class="answer" id="answer-${q.id}" ${hide?'hidden':''}>${fullText(q)}</div><p class="cover" ${hide?'':'hidden'}>先根据标题完整复述，再显示正文检查遗漏。</p><details class="hint"><summary>理解与记忆提示</summary><p>${esc(q.hint)}</p></details><div class="actions"><button data-toggle="${q.id}" aria-controls="answer-${q.id}" aria-expanded="${!hide}">${hide?'显示完整正文':'遮住正文'}</button><label>掌握程度 <select data-status="${q.id}" aria-label="${esc(q.title)}掌握程度"><option value="0" ${status(q)===0?'selected':''}>未学习</option><option value="1" ${status(q)===1?'selected':''}>需加强</option><option value="2" ${status(q)===2?'selected':''}>已背熟</option></select></label></div></article>`;}).join(''):'<div class="empty">这个范围没有匹配的题目。可以清空搜索或切换范围。</div>';
+root.querySelectorAll('[data-toggle]').forEach(b=>b.onclick=()=>{const id=b.dataset.toggle;hidden.has(id)?hidden.delete(id):hidden.add(id);const ans=document.getElementById('answer-'+id);ans.hidden=!ans.hidden;ans.nextElementSibling.hidden=!ans.hidden;b.textContent=ans.hidden?'显示完整正文':'遮住正文';b.setAttribute('aria-expanded',String(!ans.hidden));});
+root.querySelectorAll('[data-status]').forEach(el=>el.onchange=()=>{progress[el.dataset.status]=Number(el.value);save();updateProgress();el.closest('.question').classList.toggle('mastered',Number(el.value)===2);document.getElementById('resultCount').textContent=`显示 ${list.length} 题 · ${list.filter(q=>status(q)===2).length} 题已背熟`;if(view==='weak'||filter==='weak')renderQuestions();});}
+shell();
 })();
