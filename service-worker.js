@@ -1,4 +1,4 @@
-const CACHE = 'party-school-48-v7';
+const CACHE = 'party-school-48-v8';
 const APP_SHELL = [
   './',
   './index.html',
@@ -11,7 +11,9 @@ const APP_SHELL = [
   './compact.css',
   './compact.js',
   './learn.css',
-  './learn.js'
+  './learn.js',
+  './exam.css',
+  './exam.js'
 ];
 
 self.addEventListener('install', event => {
@@ -51,8 +53,8 @@ async function compactHtml(response) {
   if (!text.includes('id="accountTitle"')) {
     return new Response(text, {status: response.status, statusText: response.statusText, headers: response.headers});
   }
-  if (!text.includes('compact.css')) text = text.replace('</head>', '<link rel="stylesheet" href="./compact.css?v=7"><link rel="stylesheet" href="./learn.css?v=7"></head>');
-  if (!text.includes('compact.js')) text = text.replace('</body>', '<script src="./compact.js?v=7"></script><script src="./learn.js?v=7"></script></body>');
+  if (!text.includes('compact.css')) text = text.replace('</head>', '<link rel="stylesheet" href="./compact.css?v=8"><link rel="stylesheet" href="./learn.css?v=8"><link rel="stylesheet" href="./exam.css?v=8"></head>');
+  if (!text.includes('exam.js')) text = text.replace('</body>', '<script src="./compact.js?v=8"></script><script src="./learn.js?v=8"></script><script src="./exam.js?v=8"></script></body>');
   const headers = new Headers(response.headers);
   headers.set('content-type','text/html; charset=utf-8');
   headers.delete('content-length');
@@ -72,7 +74,7 @@ self.addEventListener('fetch', event => {
       })());
       return;
     }
-    if (url.pathname.endsWith('/compact.css') || url.pathname.endsWith('/compact.js') || url.pathname.endsWith('/learn.css') || url.pathname.endsWith('/learn.js')) {
+    if (url.pathname.endsWith('/compact.css') || url.pathname.endsWith('/compact.js') || url.pathname.endsWith('/learn.css') || url.pathname.endsWith('/learn.js') || url.pathname.endsWith('/exam.css') || url.pathname.endsWith('/exam.js')) {
       event.respondWith(networkFirst(request));
       return;
     }

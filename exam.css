@@ -1,0 +1,12 @@
+.exam-hero{padding:18px;border:1px solid #ead9cd;border-radius:16px;background:linear-gradient(135deg,#fff4e8,#fff);margin-bottom:13px}
+.exam-hero h2{margin:8px 0;color:#771a24;font-size:23px}.exam-hero p{line-height:1.75;color:#514640;margin:8px 0}
+.exam-pill{display:inline-block;padding:5px 10px;border-radius:99px;background:#8f1d28;color:#fff;font-size:12px}
+.exam-muted{display:block;color:#746961;font-size:13px;line-height:1.65}
+.exam-progress{height:8px;background:#eee3da;border-radius:99px;overflow:hidden;margin:12px 0 6px}.exam-progress i{display:block;height:100%;background:#a52b34}
+.exam-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.exam-tabs button.active{background:#8f1d28;color:#fff}
+.exam-plan-intro,.exam-after,.exam-focus-intro{padding:14px;background:#f8f4ee;border-radius:13px;margin-bottom:12px;line-height:1.7}.exam-plan-intro b,.exam-plan-intro span{display:block}.exam-plan-intro label{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:13px}
+.exam-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.exam-day,.exam-key{border:1px solid #e8ddd5;border-radius:14px;padding:14px;background:#fff}.exam-day.today{border:2px solid #9b2731;background:#fffaf7}.exam-day.complete{background:#f2f8f2}.exam-day h3,.exam-key h3{font-size:16px;color:#741720;margin:8px 0}.exam-day p,.exam-key p{font-size:13px;line-height:1.7}.exam-day-head{display:flex;justify-content:space-between;align-items:center;color:#8a2730;font-size:13px;font-weight:700}.exam-day-head label{font-weight:400;color:#514640}
+.exam-minutes{display:flex;flex-wrap:wrap;gap:6px}.exam-minutes span{font-size:11px;padding:4px 7px;border-radius:99px;background:#f4eee8;color:#664a40}
+.exam-focus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.exam-key>span{font-size:11px;color:#9b2731}.exam-key small{display:block;color:#7a6d65;line-height:1.5;margin:8px 0}.exam-key button{margin-top:4px}
+.exam-source{padding:12px;border:1px solid #e8ddd5;border-radius:14px;background:#fff}.exam-source>p{font-size:13px;color:#65574f}.exam-source-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.exam-source-controls select{padding:7px}.exam-scan{display:block;width:min(100%,900px);height:auto;margin:10px auto;border:1px solid #eee;border-radius:8px}
+@media(max-width:700px){.exam-days,.exam-focus-grid{grid-template-columns:1fr}.exam-hero{padding:14px}.exam-day{padding:12px}}
