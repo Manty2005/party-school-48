@@ -1,4 +1,4 @@
-const CACHE = 'party-school-48-v9';
+const CACHE = 'party-school-48-v10';
 const APP_SHELL = [
   './',
   './index.html',
@@ -52,8 +52,8 @@ async function compactHtml(response) {
   if (!text.includes('id="accountTitle"')) {
     return new Response(text, {status: response.status, statusText: response.statusText, headers: response.headers});
   }
-  if (!text.includes('compact.css')) text = text.replace('</head>', '<link rel="stylesheet" href="./compact.css?v=8"><link rel="stylesheet" href="./learn.css?v=8"><link rel="stylesheet" href="./exam.css?v=8"></head>');
-  if (!text.includes('exam.js')) text = text.replace('</body>', '<script src="./compact.js?v=8"></script><script src="./learn.js?v=8"></script><script src="./exam.js?v=8"></script></body>');
+  if (!text.includes('compact.css')) text = text.replace('</head>', '<link rel="stylesheet" href="./compact.css?v=10"><link rel="stylesheet" href="./learn.css?v=10"><link rel="stylesheet" href="./exam.css?v=10"></head>');
+  if (!text.includes('exam.js')) text = text.replace('</body>', '<script src="./compact.js?v=10"></script><script src="./learn.js?v=10"></script><script src="./exam.js?v=10"></script></body>');
   const headers = new Headers(response.headers);
   headers.set('content-type','text/html; charset=utf-8');
   headers.delete('content-length');

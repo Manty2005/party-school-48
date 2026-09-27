@@ -40,7 +40,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 function dayNo(){return Math.floor((new Date().setHours(0,0,0,0)-new Date(start+'T00:00:00'))/86400000)+1}
 function setup(){const nav=document.querySelector('.nav');if(!nav||document.getElementById('mustMemorizeBtn'))return;
 const b=document.createElement('button');b.id='mustMemorizeBtn';b.textContent='考前必背';b.className='primary';b.onclick=()=>tab('mustmemorize');nav.prepend(b);
-const sec=document.createElement('section');sec.id='mustmemorize';sec.className='panel page hidden';sec.innerHTML='<div id="examRoot"></div>';const quiz=document.getElementById('quiz');quiz?.parentNode?.insertBefore(sec,quiz);render()}
+const sec=document.createElement('section');sec.id='mustmemorize';sec.className='panel page hidden';sec.innerHTML='<div id="examRoot"></div>';const quiz=document.getElementById('quiz');quiz?.parentNode?.insertBefore(sec,quiz);render();if(!location.hash)tab('mustmemorize')}
 function render(){const root=document.getElementById('examRoot');if(!root)return;
 const pct=Math.round(done.size/10*100);
 root.innerHTML='<div class="exam-hero"><span class="exam-pill">考试日期 · 10 月 21 日</span><h2>48 期校党校必背资料</h2><p>根据你上传的《中国人民大学党校（行政学校、社会主义学校）发展对象培训班结业考试知识范围》整理。原资料共 200 题：理论 66、党章党纪党风 74、党史 39、人大校史 21。每题以原页为准；原件红圈红线保留，作为你标出的重点。</p><div class="exam-progress"><i style="width:'+pct+'%"></i></div><span class="exam-muted">十天计划完成 '+done.size+' / 10 天</span></div><div class="exam-tabs"><button class="active" data-view="plan">十天背诵计划</button><button data-view="focus">重点内容</button><button data-view="source">原始资料逐页看</button></div><div id="examView"></div>';
