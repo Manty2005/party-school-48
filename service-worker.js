@@ -1,5 +1,5 @@
-const CACHE='party-school-48-v11-fulltext';
-const SHELL=['./','./index.html','./app.html','./exam.css?v=11','./exam.js?v=11','./exam-data.js?v=11','./manifest.webmanifest','./icon.svg'];
+const CACHE='party-school-48-v14-merged';
+const SHELL=['./','./index.html','./app.html','./exam.css?v=14','./exam.js?v=14','./exam-data.js?v=14','./supplement-47.js?v=14','./knowledge.js?v=14','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
